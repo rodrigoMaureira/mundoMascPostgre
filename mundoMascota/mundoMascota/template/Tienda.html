@@ -1,0 +1,107 @@
+{% extends "main-template.html" %}{% load static%}
+{% block title %}Tienda{% endblock %}  
+{% block content %}
+  
+<head>
+<!-- Bootstrap -->
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+<!-- Styles -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+
+    <span class="site-heading-lower">Mundo Mascota</span>
+  </h1>
+
+    <!-- Filtro -->
+
+    <div class="filtro">
+    <h1 class="text-left text-secondary p-3 m-0"></h1>
+    <div class="row">
+        <div class="col col-12 col-md-4 mt-3 mt-md-0">
+            <select class="custom-select" id="filtroEstilo">
+                <option></option>
+                <option>Pañoleta</option>
+                <option>Correa Ergonimica</option>
+                <option>Correa Normal</option>
+                <option>Accesorio para gatos</option>
+                
+            </select>
+        
+        </div>
+        <div class="col col-12 col-md-4 mt-3 mt-md-0">
+            <select class="custom-select" id="filtroEstilo">
+              <option></option>
+                <option>Stock 3</option> 
+                <option>Stock 5</option>
+                <option>Stock 15</option>
+                <option>Stock 20</option>
+                
+            </select>
+        </div>
+        <div class="col col-12 col-md-4 mt-3 mt-md-0">
+            <button class="btn btn-lg btn-block btn-danger py-1" type="submit" id="btnBuscador"><i
+                    class="fas fa-search"></i> Buscar</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<!-- Filtro -->
+    <div class="contenedor">
+        <h1>Nuestros Productos</h1>
+        </div>
+    
+        <div class="Tienda"></div>
+        <div class="Tienda">
+        
+            <div class="correa">
+                <h3>Pañuelos</h3>
+          <img src="{% static 'img/pañoleta.jpg' %}" width="300px" height="300" alt="">"
+          
+          <p>Confeccionadas a base de Poliester. Pueden ser lavadas con agua fría<br> 
+            Es de peso muy liviano para ayudar a que no sea un accesorio molesto para el cuello de tu perro.
+
+          </p>
+          <div class="form-group">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-lg">Agregar al Carrito</button>
+</div>
+        </div>
+        <div class="correas"></div>
+        <h3>Correa Ergonomica</h3>
+          <img src="{% static 'img/correas.jpg' %}" width="300px" height="300" alt="">"
+            <p>MAX-PET CORREA RETRACTIL mango ergonomico para mayor comodidad<br>ideal para paseos largos,
+            sistema D-LOCK de facil control, giro de 360° que evita que 
+            se trabe la correa.
+        </p>
+        <div class="form-group">
+          <div class="col-md-12">
+              <button type="submit" class="btn btn-primary btn-lg">Agregar al Carrito</button>
+</div>
+          
+          
+        </div>
+        <div id="container">
+            <h3>Accesorios para Michis</h3>
+            <div>
+
+            <div>
+          <img  src="{% static 'img/gatos.jpg' %}" width="300px" height="300" alt="">" 
+        </div>
+            <p>Existe una gran variedad de juguetes para nuestras mascotas y en <br>lo referente a los gatos, además de los más tradicionales, <br>hay algunas novedades realmente interesantes y que amplían el abanico de posibilidades<br> de sus aplicaciones pudiendo resultar mucho más que un simple entretenimiento.</p>
+            <div class="form-group">
+              <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary btn-lg">Agregar al Carrito</button>
+<br>
+<br>
+</body>
+
+{% endblock %}

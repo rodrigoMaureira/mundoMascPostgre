@@ -1,0 +1,108 @@
+{% extends "main-template.html" %}{% load static %}
+{% block title %}BAZAR Mantenedor Contacto{% endblock %}
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Email</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Comentarios</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for c in contactos %}
+            <tr>
+                <th scope="row">{{c.codigo}}</th>
+                <td>{{c.nombre}}</td>
+                <td>{{c.apellidos}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.telefono}}</td>
+                <td>{{c.comentarios}}</td>
+                <td><button type="button" class="btn btn-danger" 
+                  data-bs-toggle="modal" 
+                  data-bs-target="#mdl-{{c.codigo}}">ELIMINAR</button>
+                  <div id="mdl-{{c.codigo}}" class="modal" tabindex="-1" >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Advertencia</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">                            
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Se eliminará el registro seleccionado. ¿Desea Continuar?.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                          <form method="GET" action="">
+                            <input name="codigo" value="{{c.codigo}}" type="hidden" />
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-primary" 
+                  data-bs-toggle="modal" 
+                  data-bs-target="#mdl-update-{{c.codigo}}">ACTUALIZAR</button>
+                  <div id="mdl-update-{{c.codigo}}" class="modal" tabindex="-1" >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Actualizar Registro</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"
+                           aria-label="Close">                            
+                          </button>
+                        </div>  
+                        <div class="modal-body">
+                          <form id="frm-contacto" method="POST" action="">{% csrf_token %}
+                            <div class="container" style="max-width:700px !important">
+                              <input type="hidden" id="txt-id" name="codigo" value="{{c.codigo}}">
+                              <div class="form-group row">
+                                <div class="col-sm-6">
+                                  <label for="txt-nombre" class="form-label">nombre</label>
+                                  <input id="txt-nombre" name="nombre" value="{{c.nombre}}" class="form-control" placeholder="NOMBRE" />        
+                                </div>
+                                <div class="col-sm-6">
+                                  <label for="txt-apellidos" class="form-label">apelidos</label>
+                                  <input id="txt-apellidos" name="apellido_paterno" value="{{c.apellidos}}" class="form-control" placeholder="APELLIDOS" />        
+                                </div>   
+                              </div>
+                              <div class="form-group row">
+                                <div class="col-sm-6">
+                                  <label for="txt-email" class="form-label">email</label>
+                                  <input id="txt-email" name="email" value="{{c.email}}" class="form-control" placeholder="EMAIL" />        
+                                </div>       
+                                <div class="col-sm-6">
+                                  <label for="txt-telefono" class="form-label">telefono</label>
+                                  <input id="txt-telefono" name="telefono" value="{{c.telefono}}" class="form-control" placeholder="TELÉFONO" />        
+                                </div> 
+                              </div>    
+                              <div class="form-group row">
+                                <div class="col-sm-12">
+                                  <label for="txt-comentarios" class="form-label">comentarios</label>
+                                  <textarea id="txt-comentarios" name="comentarios" class="form-control">{{c.comentarios}}</textarea>
+                                </div> 
+                              </div>
+                              <div class="form-group row">        
+                                <button type="submit" style="margin-top: 15px;" 
+                                              class=" col-sm-3 btn btn-primary"
+                                              >ENVIAR</button>
+                            </div>         
+                          </div>
+                        </form>                                                       
+                        </div>                      
+                      </div>
+                    </div>
+                  </div>                  
+                </td>                
+            </tr>
+        {% endfor %}      
+    </tbody>
+  </table>
+{% endblock %}

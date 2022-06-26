@@ -1,0 +1,54 @@
+{% extends "main-template.html" %}{% load static%}
+{% block title %}Contacto{% endblock %}  
+{% block content %}
+          <!-- Bootstrap -->
+          <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+          <!-- Fonts -->
+          <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet"> 
+          <!-- Styles -->         
+          <link href="{% static 'css/style.css' %}" rel="stylesheet">
+          <h1 class="site-heading text-center text-white d-none d-lg-block"></h1>
+    <!--Contacto-->
+    <form id="frm-registro" method="POST" action="/registro/formulario">{%csrf_token%}
+      <div class="container" style="max-width:700px !important">
+        <div class="form-group row">
+          <!--nombre-->
+          <div class="col-sm-9">
+            <label for=txt-nombre" class="form-label">nombre</label>
+            <input id="txt-nombre" name="nombre" class="form-control" placeholder="nombre"  />
+          </div>
+          <!--apellido-->
+          <div class="col-sm-6">
+            <label for="txt-apellidos" class="form-label">apellidos</label>
+            <input id="txt-apellidos" name="apellidos" class="form-control" placeholder="apellidos" />
+          </div>
+          <!--rut-->
+          <div class="col-sm6">
+              <label for="txt-rut" class="form-label">rut</label>
+              <input id="txt-rut" name="rut" class="form-control" placeholder="rut" />
+          </div>
+          <!--dv-->
+          <div class="col-sm9">
+            <label for="txt-dv" class="form-label">dv</label>
+            <input id=txt-dv" name="dv" class="form-control" placeholder="dv" />
+          <!--email-->
+          <div class="col-sm-6">
+            <label for="txt-email" class="form-label">email</label>
+            <input id="txt-email" name="email" class="form-control" placeholder="email" />
+          </div>
+          <!--telefono-->
+          <div class="col-sm-6">
+            <label for="txt-telefono" class="form-label">telefono</label>
+            <input id="txt-telefono" name="telefono" class="form-control" placeholder="telefono" />
+          </div>
+          <br>
+          <br>
+          <!--boton-og-->
+          <div class="form-group">
+            <div class="col-md-12 ">
+            <button type="submit" class="btn btn-primary btn-lg1">Enviar</button>
+            </div>
+          </div>        
+                
+{% endblock %}

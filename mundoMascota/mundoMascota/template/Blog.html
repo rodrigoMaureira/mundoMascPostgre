@@ -1,0 +1,60 @@
+{% extends "main-template.html" %}{% load static%}
+{% block title %}Home{% endblock %}
+{% block content %}
+<body>
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+
+    <span class="site-heading-lower">Mundo Mascota</span>
+  </h1>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item active px-lg-4">
+        <a class="nav-link text-uppercase text-expanded" href="/home">Inicio</a>
+      
+      <li class="nav-item px-lg-4">
+        <a class="nav-link text-uppercase text-expanded" href="/Tienda">Tienda</a>
+      </li>
+      <li class="nav-item px-lg-4">
+        <a class="nav-link text-uppercase text-expanded" href="/Contacto">Contacto</a>
+      </li>
+      <li class="nav-item px-lg-4">
+        <a class="nav-link text-uppercase text-expanded" href="/Blog">Blog</a>
+      </li>
+
+    </ul>
+  </div>
+  <br>
+  <br>
+  <div>
+    <h1>Blog para Mascotas</h1>
+    </div>
+    <br>
+            <p>En nuestro blog para mascotas encontrarás información y consejos para tu mascota.<br> Desde reseñas de productos hasta sugerencias para su cuidado,<br> comparativas entre alimentos, accesorios básicos (y no tan básicos),<br> juguetes, pasatiempos, noticias y datos sorprendentes… todo lo que puedas necesitar<br> o desees encontrar.
+               No importa el tamaño, la especie, el tipo, el color, si son peludas o con escamas: aquí las mascotas son las protagonistas absolutas.
+
+                </p>
+                <br>
+                <br>
+     <div class="categoria">
+      <h2>Categoria</h2>
+      </div>
+       <br>
+      <div class="Alimentacion">
+        <h3>Alimentacion</h3>
+  <img src="{% static 'img/alimentacion.jpg' %}" width="180px" height="180" alt="">"
+     
+  <br>
+  <br>
+  <div class="Cuidados">
+    <h3>Cuidados</h3>
+  <img src="{% static 'img/cuidado.jpg' %}" width="180px" height="180" alt="">" 
+    
+  <br>
+  <br>
+  <br>
+  <div class="Alimentacion">
+    <h3>Patita</h3>
+  <img src="{% static 'img/patita.jpg' %}" width="180px" height="180" alt="">"
+ 
+</body>
+{% endblock %}
