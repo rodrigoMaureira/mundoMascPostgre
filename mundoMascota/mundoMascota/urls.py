@@ -18,13 +18,22 @@ from django.contrib import admin
 from django.urls import path
 from mundoMascota.views.home import home
 from mundoMascota.views.blog import Blog
-from mundoMascota.views.login import login
+from mundoMascota.views import login
+from mundoMascota.views import logout
+#from mundoMascota.views import user
+from mundoMascota.models import Contacto
+from django.contrib.auth.models import Permission, ContentType
 from mundoMascota.views.principal import Principal
 from mundoMascota.views.tienda import Tienda
 from mundoMascota.views.contacto import contacto_index, formulario_contacto
 from mundoMascota.views.mantenedorContacto import load_contacto
 from mundoMascota.views.registro import registro_index, formulario_registro
-#from mundoMascota.views.logout import logout
+from mundoMascota.views import errorpage
+
+admin.site.register(Permission)
+admin.site.register(ContentType)
+admin.site.register(Contacto)
+#admin.site.register(user)
 
 
 urlpatterns = [
@@ -38,6 +47,10 @@ urlpatterns = [
     path('mantenedorContacto',load_contacto),
     path('Registro', registro_index),
     path('registro/formulario', formulario_registro),
-    path('login/', login),
-    #path('logout/', logout)
+    path('login/', login.home),
+    path('logout/', logout.logout_user),
+    path('error-401/', errorpage.error_401_page),
+    path('error-403/', errorpage.error_403_page),
+    #APIREST
+    #path('api/v1/contacto')
 ]
